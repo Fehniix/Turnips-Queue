@@ -2,3 +2,6 @@
 docker-compose.yml
 Dockerfile
 NOTES.md
+
+# Ignore temporary DB data
+**/pg_stat_tmp
