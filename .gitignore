@@ -1,0 +1,7 @@
+# Primarily used for testing and understanding core Docker concepts.
+docker-compose.yml
+Dockerfile
+NOTES.md
+
+# Ignore temporary DB data
+database-mount
