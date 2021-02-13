@@ -1,10 +1,10 @@
-package com.example.demo;
+package com.fehniix.acnh_turnips;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class AcnhTurnipsApplicationTests {
 
 	@Test
 	void contextLoads() {
