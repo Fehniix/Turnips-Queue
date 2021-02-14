@@ -6,6 +6,15 @@
 		<title>ACNH: Turnips</title>
 	</head>
 	<body>
+		<div class="rulesAndFaq">
+
+		</div>
+
+		<%@include file="includes/mainPage.jsp" %>
+
+		<%@include file="includes/host.jsp" %>
+
+		<%@include file="includes/islands.jsp" %>
 		
 	</body>
 </html>
