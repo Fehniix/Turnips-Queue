@@ -1,0 +1,11 @@
+.actionNotes {
+	width: 125%;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.note {
+	width: 60%;
+	margin: 3vw 0;
+}
