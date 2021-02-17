@@ -10,7 +10,14 @@
 
 :root {
 	--logo-yellow: 254, 210, 62;
-	--primary-color: 51, 172, 153;
+	--color-primary-100: 51, 172, 153;
+	--color-secondary-100: 254, 210, 62;
+	--color-secondary-200: 230, 156, 21;
+	--btn-hover: 41, 138, 121;
+}
+
+html, body {
+	min-height: 100%;
 }
 
 body {
@@ -25,23 +32,76 @@ body {
 }
 
 a:link, a:visited {
-	color: rgb(var(--primary-color));
+	color: rgb(var(--color-primary-100));
+}
+
+input {
+	font-family: Rubik;
+	font-size: 1.1rem;
 }
 
 .pages {
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	flex-grow: 1;
+	overflow: hidden;
 }
 
-.mainPage {
-	display: none !importanta;
+/** The rule below refers to the state of pages that are hidden at this moment. **/
+.page {
+	display: none;
+	position: relative;
+	left: 100vw;
+	opacity: 0;
+}
+
+.btn {
+	color: white;
+	font-size: 1.1rem;
+	padding: 6px 8px;
+	background-color: rgb(var(--color-primary-100));
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background-color: rgb(var(--btn-hover));
+}
+
+.blackOverlay {
+	width: 100vw;
+	height: 100vh;
+	background: rgb(0 0 0 / 40%);
+	position: fixed;
+	z-index: 10;
+	display: none;
+}
+
+.modal {
+	display: none;
+	position: absolute;
+	z-index: 11;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	background-color: white;
+	padding: 32px;
+	border-radius: 16px;
 }
 
 /** MAIN PAGE **/
 .mainPage {
 	width: 100%;
+	left: 0vw;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	opacity: 1;
 }
 
 .wrapper {
@@ -180,9 +240,75 @@ a:link, a:visited {
 
 /** HOST **/
 
+.hostPage {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
+.hostPage .wrapper {
+	width: 42%;
+	max-width: 432px;
+}
+
+.hostPage .boxContainer {
+	width: 100%;
+	padding: 20px 32px;
+	background: white;
+	box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);
+	border-radius: 6px;
+}
+
+.hostPage .title span {
+	font-size: 1.25rem;
+}
+
+.hostPage .title strong {
+	font-weight: 600;
+}
+
+.hostPage .description {
+	font-size: 0.9rem;
+}
+
+.hostPage .dodoCodeSection {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 28px 0px;
+}
+
+.hostPage .dodoCodeSection label {
+	padding-right: 16px;
+}
+
+.hostPage .dodoCodeSection input {
+	border-color: rgb(var(--color-secondary-100));
+	border-width: 0;
+	border-bottom-width: 2px;
+	flex-grow: 1;
+}
+
+.hostPage .dodoCodeSection input:focus {
+	outline: none;
+	border-bottom-color: rgb(var(--color-secondary-200));
+}
+
+.hostPage .boxContainer .actions {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
 
 /** END HOST **/
+
+/** Animations! **/
+
+
+
+/** End animations. **/
 
 .footer {
 	width: 60%;
@@ -194,6 +320,7 @@ a:link, a:visited {
 	color: black;
 	border-radius: 12px;
 	margin-top: 16px;
+	margin-bottom: 16px;
 	padding: 12px;
 }
 
