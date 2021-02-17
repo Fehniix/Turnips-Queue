@@ -16,9 +16,18 @@ class Animator {
 		});
 	}
 
-	slideOn(htmlElement) {
+	/**
+	 * Applies the "slideOn" animation to the supplied `HTMLElement`. If `flex` is set to true, the item shown is treated as a FlexBox item.
+	 * @param {HTMLElement} htmlElement 
+	 * @param {boolean} flex 
+	 */
+	slideOn(htmlElement, flex = false) {
 		return new Promise((resolve, _) => {
-			$(htmlElement).show();
+			if (!flex)
+				$(htmlElement).show();
+			else
+				$(htmlElement).showFlex();
+
 			$(htmlElement).animate({
 				left: '0vw',
 				opacity: '1'

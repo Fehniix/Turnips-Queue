@@ -33,9 +33,9 @@ class PageHandler {
 	/**
 	 * Swaps to the page identified by its unique name.
 	 */
-	async swapToPage(pageName) {
+	async swapToPage(pageName, flex = false) {
 		await Animator.slideOff(this.pages[this.activePageName]);
-		await Animator.slideOn(this.pages[pageName]);
+		await Animator.slideOn(this.pages[pageName], flex);
 		
 		//	Set the currently active page.
 		this.activePageName = pageName;
