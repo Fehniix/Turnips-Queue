@@ -7,13 +7,14 @@
 		<link rel="stylesheet" media="only screen and (max-device-width: 880px)" href="./css/index.mobile.css">
 		<script src="./js/index.js" type="module"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<title>ACNH: Turnips</title>
 	</head>
 	<body>
+		<div class="blackOverlay"></div>
+
 		<div class="rulesAndFaq">
-			<a href="#">Rules</a>
+			<a href="#" id="linkRules">Rules</a>
 			<p>|</p>
-			<a href="#">FAQ</a>
+			<a href="#" id="linkFAQ">FAQ</a>
 		</div>
 
 		<div class="pages">
@@ -32,6 +33,20 @@
 			<p>
 				Developed with &#x1F496; by <a href="https://www.linkedin.com/in/johnnybueti/"><strong>Johnny Bueti</strong></a> for <strong>Giovanni Grasso & Kristian Reale</strong>, Universita' della Calabria. This website is <strong>not</strong> primarily intended for or directed towards commercial advantage or monetary compensation: it is otherwise intended for academic purposes exclusively.
 			</p>
+		</div>
+
+		<div class="modal" id="modalRules">
+			<h1>Rules &#x2696;</h1>
+			<ul>
+				<li>Be a good boi.</li>
+			</ul>
+		</div>
+
+		<div class="modal" id="modalFAQ">
+			<h1>FAQ &#x2696;</h1>
+			<ul>
+				<li>Be a good boi.</li>
+			</ul>
 		</div>
 	</body>
 </html>

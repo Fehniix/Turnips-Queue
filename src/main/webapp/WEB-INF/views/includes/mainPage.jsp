@@ -1,4 +1,4 @@
-<div class="mainPage">
+<div class="mainPage page" pageName="main">
 	<div class="wrapper">
 		<div class="logo">
 			<h1>ACNH: Turnips</h1>
