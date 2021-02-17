@@ -173,7 +173,7 @@ input {
 
 .note {
 	width: 42%;
-	height: 230px;
+	height: 180px;
 	position: relative;
 	margin: 20px;
 	background: white;
@@ -193,7 +193,9 @@ input {
 }
 
 .note .noteDescription {
-	padding: 0px 16px 16px 16px;
+	font-size: 0.85rem;
+	padding: 16px;
+	text-align: center;
 }
 
 #noteHost {
@@ -242,7 +244,6 @@ input {
 
 .hostPage {
 	width: 100%;
-	display: flex;
 	align-items: center;
 	justify-content: center;
 }
