@@ -12,11 +12,19 @@
 			<div class="dodoCodeSection">
 				<label for="dodoCodeInput">Dodo Code:</label><input type="text" id="dodoCodeInput" placeholder="ABCDE" maxlength="5">
 			</div>
-			
+
 			<div class="actions">
 				<button class="btn btnCancel">Cancel</button>
 				<button class="btn btnNext">Next</button>
 			</div>
+		</div>
+	</div>
+</div>
+
+<div class="hostPageStep2 page" pagename="hostStep2">
+	<div class="wrapper">
+		<div class="boxContainer">
+			<span>henlo</span>
 		</div>
 	</div>
 </div>
