@@ -13,16 +13,22 @@
 				<div class="orangePin pin"></div>
 				<h1 class="noteTitle">Host</h1>
 				<div class="noteDescription">
-					<p>test 123</p>
+					<p>Create a queue and share your island with the whole Animal Crossing world! Click on this note to get started!</p>
 				</div>
 			</div>
 			<div class="note" id="noteJoin">
 				<div class="bluePin pin"></div>
 				<h1 class="noteTitle">Join</h1>
+				<div class="noteDescription">
+					<p>Type a <em>Turnip Code</em> below to hop on the queue page! Once there, you will be able to join the queue!</p>
+				</div>
 			</div>
 			<div class="note" id="noteIslands">
 				<div class="purplePin pin"></div>
 				<h1 class="noteTitle">Islands</h1>
+				<div class="noteDescription">
+					<p>Pick a specific island to visit among many shared here! Filter by price, native fruit, villagers on the island and much more!</p>
+				</div>
 			</div>
 		</div>
 	</div>
