@@ -57,6 +57,7 @@ input {
 	position: relative;
 	left: 100vw;
 	opacity: 0;
+	margin-top: 16px;
 }
 
 .btn {
@@ -104,7 +105,7 @@ input {
 	opacity: 1;
 }
 
-.wrapper {
+.mainPage .wrapper {
 	width: 60%;
 	display: flex;
 	flex-direction: column;
@@ -240,6 +241,56 @@ input {
 
 /** END MAIN PAGE **/
 
+/** SHARED COMPONENTS **/
+.boxContainer {
+	padding: 20px 32px;
+	background: white;
+	box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);
+	border-radius: 6px;
+}
+
+.boxContainer .actions {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.page .title span {
+	font-size: 1.25rem;
+}
+
+.page .title strong {
+	font-weight: 600;
+}
+
+.page .description {
+	font-size: 0.9rem;
+}
+
+.section {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 28px 0px;
+}
+
+.section label {
+	padding-right: 16px;
+}
+
+.section input {
+	border-color: rgb(var(--color-secondary-100));
+	border-width: 0;
+	border-bottom-width: 2px;
+}
+
+.section input:focus {
+	outline: none;
+	border-bottom-color: rgb(var(--color-secondary-200));
+}
+/** END SHARED COMPONENTS **/
+
 /** HOST **/
 
 .hostPage {
@@ -250,66 +301,25 @@ input {
 
 .hostPage .wrapper {
 	width: 42%;
-	max-width: 432px;
+	max-width: 500px;
+	min-width: 330px;
 }
 
-.hostPage .boxContainer {
+/** HOST STEP 2 **/
+
+.hostPageStep2 {
 	width: 100%;
-	padding: 20px 32px;
-	background: white;
-	box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);
-	border-radius: 6px;
-}
-
-.hostPage .title span {
-	font-size: 1.25rem;
-}
-
-.hostPage .title strong {
-	font-weight: 600;
-}
-
-.hostPage .description {
-	font-size: 0.9rem;
-}
-
-.hostPage .dodoCodeSection {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
 	align-items: center;
-	margin: 28px 0px;
+	justify-content: center;
 }
 
-.hostPage .dodoCodeSection label {
-	padding-right: 16px;
-}
-
-.hostPage .dodoCodeSection input {
-	border-color: rgb(var(--color-secondary-100));
-	border-width: 0;
-	border-bottom-width: 2px;
-	flex-grow: 1;
-}
-
-.hostPage .dodoCodeSection input:focus {
-	outline: none;
-	border-bottom-color: rgb(var(--color-secondary-200));
-}
-
-.hostPage .boxContainer .actions {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+.hostPageStep2 .wrapper {
+	width: 42%;
+	max-width: 432px;
+	min-width: 415px;
 }
 
 /** END HOST **/
-
-/** Animations! **/
-
-
-
-/** End animations. **/
 
 .footer {
 	width: 60%;

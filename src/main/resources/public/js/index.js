@@ -30,6 +30,10 @@ import Animator from './animator.js';
 			PageHandler.swapToPage('hostStep2', true);
 		});
 
+		$('.hostPageStep2 .btnBack').on('click', _ => {
+			PageHandler.swapToPage('host');
+		});
+
 		//	Modals
 		$('#linkRules').on('click', _ => {
 			Animator.showModal('modalRules');
