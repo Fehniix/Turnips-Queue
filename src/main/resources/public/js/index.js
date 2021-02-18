@@ -15,10 +15,25 @@ import Animator from './animator.js';
 		PageHandler.initialize();
 
 		//	Event binding.
+
+		$(window).on('islandsLoaded', _ => {
+			$('.island').each((index, element) => {
+				//	Rotate island notes randomly.
+				console.log(element)
+			});
+		});
 		
 		//	Main page.
 		$('#noteHost').on('click', _ => {
 			PageHandler.swapToPage('host', true);
+		});
+
+		$('#noteJoin').on('click', _ => {
+			PageHandler.swapToPage('island', true);
+		});
+
+		$('#noteIslands').on('click', _ => {
+			PageHandler.swapToPage('islands', true);
 		});
 
 		//	Host page.
@@ -31,8 +46,15 @@ import Animator from './animator.js';
 		});
 
 		$('.hostPageStep2 .btnBack').on('click', _ => {
-			PageHandler.swapToPage('host');
+			PageHandler.swapToPage('host', true);
 		});
+
+		//	Island page
+		$('.islandPage .btnBack').on('click', _ => {
+			PageHandler.swapToPage('main');
+		});
+
+		// Islands page
 
 		//	Modals
 		$('#linkRules').on('click', _ => {
