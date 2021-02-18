@@ -13,7 +13,9 @@
 	--color-primary-100: 51, 172, 153;
 	--color-secondary-100: 254, 210, 62;
 	--color-secondary-200: 230, 156, 21;
+	--color-alert: 218, 47, 53;
 	--btn-hover: 41, 138, 121;
+	--separator: 0, 0, 0, 0.2;
 }
 
 html, body {
@@ -35,9 +37,17 @@ a:link, a:visited {
 	color: rgb(var(--color-primary-100));
 }
 
+p {
+	line-height: 1.5;
+}
+
 input {
 	font-family: Rubik;
 	font-size: 1.1rem;
+}
+
+button {
+	font-family: Rubik;
 }
 
 .pages {
@@ -48,7 +58,6 @@ input {
 	align-items: center;
 	position: relative;
 	flex-grow: 1;
-	overflow: hidden;
 }
 
 /** The rule below refers to the state of pages that are hidden at this moment. **/
@@ -70,8 +79,17 @@ input {
 	cursor: pointer;
 }
 
+.btnRed {
+	color: white;
+	background-color: rgb(var(--color-alert));
+}
+
 .btn:hover {
 	background-color: rgb(var(--btn-hover));
+}
+
+.border-separator {
+	border-bottom: 2px solid rgba(var(--separator));
 }
 
 .blackOverlay {
@@ -118,6 +136,7 @@ input {
 	color: rgb(var(--logo-yellow));
 	font-size: 4rem;
 	user-select: none;
+	text-align: center;
 }
 
 .rulesAndFaq {
@@ -314,12 +333,275 @@ input {
 }
 
 .hostPageStep2 .wrapper {
-	width: 42%;
-	max-width: 432px;
-	min-width: 415px;
+	width: 433px;
+}
+
+.hostPageStep2 .islandDescription textarea {
+	font-family: Rubik;
+	font-size: 0.9rem;
 }
 
 /** END HOST **/
+
+/** INDIVIDUAL HOSTED ISLAND **/
+
+.islandPage .wrapper {
+	max-width: 500px;
+}
+
+.islandPage .boxContainer {
+	position: relative;
+	padding-top: 2rem;
+}
+
+.islandPage .btnBack {
+	width: 4rem;
+	height: 4rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 2rem;
+	transform: translate(-50%, -50%);
+}
+
+.islandPage .title span {
+	font-size: 1.4rem;
+}
+
+.islandPage .header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.islandPage #btnLeaveQueue {
+	display: none;
+}
+
+.islandInfo {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.islandInfo .separator {
+	padding: 0px 4px;
+}
+
+.islandPage .description {
+	white-space: pre-wrap;
+}
+
+.islandPage .description p {
+	min-height: 3.5rem;
+    max-height: 10rem;
+	overflow-y: auto;
+	margin: 0;
+}
+
+.islandPage .header.visitorQueue {
+	margin: 1rem 0;
+}
+
+.islandPage .header.visitorQueue small {
+	font-size: 0.9rem;
+	font-style: italic;
+}
+
+.islandPage .visitorsDescription {
+	font-size: 0.75rem;
+}
+
+.islandPage .visitors {
+	margin-bottom: 1rem;
+}
+
+.islandPage .visitors ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.islandPage .visitors li {
+	font-weight: 100;
+	font-size: 0.9rem;
+	margin-bottom: 0.5rem;
+}
+
+.islandPage .visitors li .position {
+	margin-right: 0.25rem;
+}
+
+.islandPage .visitors li .username {
+	font-weight: 700;
+}
+
+.islandPage .visitors li .timeSinceJoin {
+	font-weight: 100;
+	font-size: 0.8rem;
+	font-style: italic;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.islandPage .currentPosition {
+	margin-top: 1rem;
+	text-align: center;
+}
+
+.fruitImage[fruit="apple"] {
+	background-image: url('./../img/apple.png');
+}
+
+.fruitImage[fruit="peach"] {
+	background-image: url('./../img/peach.png');
+}
+
+.fruitImage[fruit="orange"] {
+	background-image: url('./../img/orange.png');
+}
+
+.fruitImage[fruit="pear"] {
+	background-image: url('./../img/pear.png');
+}
+
+.fruitImage[fruit="cherry"] {
+	background-image: url('./../img/cherry.png');
+}
+
+.turnipsImage {
+	background-image: url('./../img/turnips.png');
+}
+
+.icon {
+	width: 1.3rem;
+	height: 1.3rem;
+	background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+	margin: 0px 4px;
+}
+
+/** END INDIVIDUAL HOSTED ISLAND **/
+
+/** ISLAND LISTINGS **/
+
+.islandsPage {
+	width: 90%;
+}
+
+.islandsPage .wrapper {
+	width: 100%;
+}
+
+.islandsPage .filters {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.islandsPage .filter {
+	padding: 0.75rem;
+	background-color: rgb(255 255 255 / 0.4);
+	border-radius: 0.2rem;
+}
+
+.islandsPage .filter .filterTitle {
+	text-align: center;
+	margin-bottom: 0.5rem;
+}
+
+.islandsPage .filter .filterOptions {
+	display: flex;
+}
+
+.islandsPage .filter .filterOptions button {
+	text-align: center;
+	border: none;
+	cursor: pointer;
+	padding: 0.4rem;
+	background-color: rgba(var(--color-secondary-200), 0.5);
+}
+
+.islandsPage .filter .filterOptions button[selected] {
+	background-color: rgb(var(--color-secondary-100));
+}
+
+.islandsPage .filter .filterOptions button:first-child {
+	border-top-left-radius: 0.4rem;
+	border-bottom-left-radius: 0.4rem;
+}
+
+.islandsPage .filter .filterOptions button:last-child {
+	border-top-right-radius: 0.4rem;
+	border-bottom-right-radius: 0.4rem;
+}
+
+.islandsPage .islands {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	justify-items: center;
+	gap: 1.5rem;
+	margin-top: 2rem;
+}
+
+.islandsPage .island {
+	width: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+	padding: 0.75rem;
+	/** This is amazing. width: 100 is calculated only AFTER padding is first applied. God I wish I knew this earlier. Wow. 🤯 **/
+	box-sizing: border-box;
+	background-color: rgb(255 255 255);
+	box-shadow: 0 0 5px rgb(0 0 0 / 60%), 
+				0 0 50px rgb(0 0 0 / 20%) inset;
+	user-select: none;
+	cursor: pointer;
+}
+
+.islandsPage .island .islandHeader {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.islandsPage .island .islandHeader .islandName {
+	font-size: 2rem;
+	font-family: FinkHeavy;
+}
+
+.islandsPage .island .islandHeader .entryFee {
+	font-size: 0.9rem;
+	margin-left: 0.6rem;
+}
+
+.islandsPage .island .islandInfo {
+	margin: 1rem 0;
+}
+
+.islandsPage .island .description p {
+	max-height: 11rem;
+	overflow: hidden;
+	font-size: 0.75rem;
+	white-space: pre-wrap;
+}
+
+.islandsPage .island .queueStatus {
+	width: 100%;
+	text-align: right;
+	font-style: italic;
+	font-size: 0.8rem;
+}
+
+.islandsPage .island:hover {
+	transform: rotate(0deg) scale(1.2) !important;
+}
+
+/** END ISLAND LISTINGS **/
 
 .footer {
 	width: 60%;
@@ -341,10 +623,38 @@ input {
 }
 
 /** Transitory rules for UI consistency across resolutions **/
-@media only screen and (min-device-width: 881px) {
-	
+@media only screen and (max-device-width: 881px) {
+	/** To fill up 60% of wrapper width. **/
+	.mainPage .siteDescription {
+		width: 125%;
+	}
 }
 
 @media only screen and (min-device-width: 1000px) {
 	
+}
+
+/** Edge mobile case: hostPageStep2 has a fixed 433px width. Need to scale that down. **/
+@media only screen and (max-device-width: 480px) {
+	.rulesAndFaq {
+		width: 33%;
+	}
+
+	.hostPageStep2 {
+		transform: scale(0.75);
+	}
+
+	.modal h1 {
+		font-size: 1rem;
+	}
+}
+
+@media only screen and (max-device-width: 590px) {
+	.islandPage {
+		transform: scale(0.8);
+	}
+
+	.islandPage .btn {
+		font-size: 0.7rem;
+	}
 }
