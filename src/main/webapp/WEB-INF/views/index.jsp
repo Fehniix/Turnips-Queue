@@ -22,9 +22,7 @@
 
 			<%@include file="includes/host.jsp" %>
 
-			<%@include file="includes/hostedIsland.jsp" %>
-
-			<%@include file="includes/hostedIslandAdmin.jsp" %>
+			<%@include file="includes/island.jsp" %>
 
 			<%@include file="includes/islands.jsp" %>
 		</div>
