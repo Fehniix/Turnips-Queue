@@ -41,6 +41,9 @@
 					<button id="btnJoinQueue" class="btn">Join Queue</button>
 					<button id="btnLeaveQueue" class="btn btnRed">Leave Queue</button>
 				</div>
+				<div class="actions adminActions">
+					<button id="btnEditQueue" class="btn">Edit</button>
+				</div>
 			</div>
 
 			<p class="visitorsDescription">This island allows for 4 visitor(s) at a time with a max queue size of 50. Currently there are 48 visitor(s) in line.</p>
@@ -69,6 +72,13 @@
 
 			<div class="currentPosition">
 				<span>You are <strong>#45</strong> of 50 in the queue.</span>
+			</div>
+
+			<div class="adminControls">
+				<div class="actions">
+					<button id="btnLockQueue" class="btn">Lock Queue</button>
+					<button id="btnDestroyQueue" class="btn btnRed">Destroy Queue</button>
+				</div>
 			</div>
 		</div>
 	</div>
