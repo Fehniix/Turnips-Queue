@@ -1,8 +1,8 @@
 class Animator {
-	constructor() {
-
-	}
-
+	/**
+	 * Applies the "slideOff" animation to the supplied `HTMLElement`.
+	 * @param {HTMLElement} htmlElement 
+	 */
  	slideOff(htmlElement) {
 		return new Promise((resolve, _) => {
 			$(htmlElement).animate({
