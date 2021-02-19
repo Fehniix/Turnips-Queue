@@ -51,7 +51,6 @@ button {
 }
 
 .pages {
-	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -63,6 +62,7 @@ button {
 /** The rule below refers to the state of pages that are hidden at this moment. **/
 .page {
 	display: none;
+	justify-content: center;
 	position: relative;
 	left: 100vw;
 	opacity: 0;
@@ -124,7 +124,7 @@ button {
 }
 
 .mainPage .wrapper {
-	width: 60%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -183,7 +183,7 @@ button {
 }
 
 .actionNotes {
-	width: 750px;
+	max-width: 750px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -192,7 +192,8 @@ button {
 }
 
 .note {
-	width: 42%;
+	max-width: 330px;
+	min-width: 300px;
 	height: 180px;
 	position: relative;
 	margin: 20px;
@@ -319,9 +320,8 @@ button {
 }
 
 .hostPage .wrapper {
-	width: 42%;
 	max-width: 500px;
-	min-width: 330px;
+	margin: 0 1rem;
 }
 
 /** HOST STEP 2 **/
@@ -490,37 +490,56 @@ button {
 	width: 90%;
 }
 
-.islandsPage .wrapper {
-	width: 100%;
+.islandsPage .backWrapper {
+	margin-bottom: 1rem;
 }
 
 .islandsPage .filters {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	font-size: 1rem;
 }
 
 .islandsPage .filter {
-	padding: 0.75rem;
+	padding: 0.75em;
+	margin: 0.4em;
 	background-color: rgb(255 255 255 / 0.4);
 	border-radius: 0.2rem;
 }
 
+.islandsPage .filter:first-child {
+	justify-self: flex-start;
+	margin-left: 0;
+}
+
+.islandsPage .filter:nth-child(2) {
+	justify-self: center;
+	margin-left: 0;
+}
+
+.islandsPage .filter:last-child {
+	justify-self: flex-end;
+	margin-right: 0;
+}
+
 .islandsPage .filter .filterTitle {
 	text-align: center;
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.5em;
 }
 
 .islandsPage .filter .filterOptions {
 	display: flex;
+	justify-content: center;
 }
 
 .islandsPage .filter .filterOptions button {
 	text-align: center;
 	border: none;
 	cursor: pointer;
-	padding: 0.4rem;
+	padding: 0.4em;
 	background-color: rgba(var(--color-secondary-200), 0.5);
+	font-size: 0.75em;
 }
 
 .islandsPage .filter .filterOptions button[selected] {
@@ -546,7 +565,7 @@ button {
 }
 
 .islandsPage .island {
-	width: 100%;
+	width: 16rem;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -628,6 +647,10 @@ button {
 	.mainPage .siteDescription {
 		width: 125%;
 	}
+
+	.islandsPage .islands {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 @media only screen and (min-device-width: 1000px) {
@@ -647,6 +670,14 @@ button {
 	.modal h1 {
 		font-size: 1rem;
 	}
+
+	.islandsPage .filters {
+		flex-direction: column;
+	}
+
+	.islandsPage .filters .filter {
+		margin: 0.6em 0;
+	}
 }
 
 @media only screen and (max-device-width: 590px) {
@@ -656,5 +687,13 @@ button {
 
 	.islandPage .btn {
 		font-size: 0.7rem;
+	}
+
+	.islandsPage .filters {
+		font-size: 0.8rem;
+	}
+
+	.islandsPage .islands {
+		grid-template-columns: 1fr;
 	}
 }
