@@ -18,6 +18,8 @@ import Extensions from './extensions.js';
 		PageRouter.loadPages(PageHandler);
 
 		//	Global binds.
+		//	Available events:
+		//	islandsLoaded, pageSwapped.
 		$(window).on('islandsLoaded', _ => {
 			$('.island').each((index, element) => {
 				//	Rotate island notes randomly.
