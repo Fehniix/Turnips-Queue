@@ -7,6 +7,7 @@
 		<link rel="stylesheet" media="only screen and (max-device-width: 880px)" href="./css/index.mobile.css">
 		<script src="./js/index.js" type="module"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<title>ACNH: Turnips</title>
 	</head>
 	<body>
 		<div class="blackOverlay"></div>
@@ -45,6 +46,11 @@
 			<ul>
 				<li>Be a good boi.</li>
 			</ul>
+		</div>
+
+		<div class="audio btn">
+			<span class="play">&#x23F5;</span>
+			<span class="pause">&#x23F8;</span>
 		</div>
 	</body>
 </html>
