@@ -15,8 +15,21 @@ class HostPage {
 		});
 	}
 	
+	/**
+	 * Sets the `PageHandler` instance to use for future reference.
+	 * @param {PageHandler} pageHandler 
+	 */
 	setPageHandler(pageHandler) {
 		this.pageHandler = pageHandler;
+	}
+
+	/**
+	 * Validates the raw `input:text` value.
+	 */
+	validateDodoCodeInput(dodoCode) {
+		if (!dodoCode || typeof dodoCode !== 'string')
+			return false;
+		return dodoCode.length === 5;
 	}
 }
 
