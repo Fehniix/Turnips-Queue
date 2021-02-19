@@ -4,7 +4,7 @@ import PageHandler from './pageHandler.js';
 import PageRouter from './pageRouter.js';
 import Animator from './animator.js';
 import Extensions from './extensions.js';
-import { Base64 } from 'https://cdn.jsdelivr.net/npm/js-base64@3.6.0/base64.mjs';
+import SocketHandler from './socketHandler.js';
 
 //	Main, and strictly anonoymous, entry point.
 (() => {
@@ -21,6 +21,9 @@ import { Base64 } from 'https://cdn.jsdelivr.net/npm/js-base64@3.6.0/base64.mjs'
 
 		//	Load pages dynamically.
 		PageRouter.loadPages(PageHandler);
+
+		//	Initialize WebSocket Interface
+		SocketHandler.initialize();
 
 		//	Load random music!
 		loadMusic();
