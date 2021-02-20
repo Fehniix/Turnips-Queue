@@ -75,6 +75,11 @@ class Animator {
 			$('.blackOverlay').hide();
 		});
 	}
+
+	showErrorModal(message) {
+		$('#errorText').text(message);
+		this.showModal('modalError');
+	}
 }
 
 export default new Animator();

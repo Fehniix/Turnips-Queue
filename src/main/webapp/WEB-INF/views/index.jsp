@@ -3,9 +3,9 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="./css/index.css">
-		<link rel="stylesheet" media="only screen and (max-device-width: 880px)" href="./css/index.mobile.css">
-		<script src="./js/index.js" type="module"></script>
+		<link rel="stylesheet" href="/css/index.css">
+		<link rel="stylesheet" media="only screen and (max-device-width: 880px)" href="/css/index.mobile.css">
+		<script src="/js/index.js" type="module"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="/webjars/sockjs-client/sockjs.min.js"></script>
     	<script src="/webjars/stomp-websocket/stomp.min.js"></script>
@@ -48,6 +48,11 @@
 			<ul>
 				<li>Be a good boi.</li>
 			</ul>
+		</div>
+
+		<div class="modal" id="modalError">
+			<h1>Error</h1>
+			<p id="errorText"></p>
 		</div>
 
 		<div class="audio btn">

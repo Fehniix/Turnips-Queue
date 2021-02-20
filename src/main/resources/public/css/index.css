@@ -235,6 +235,44 @@ button {
 	transform: rotate(0deg) scale(1.2) !important;
 }
 
+#noteJoin .turnipCodeForm {
+	display: none;
+}
+
+#noteJoin.active {
+	height: fit-content;
+	z-index: 5;
+}
+
+#noteJoin.active .turnipCodeForm {
+	display: block;
+}
+
+#noteJoin .noteDescription {
+	padding-bottom: 0.5rem;
+}
+
+#noteJoin .section {
+	margin: 0;
+	margin-bottom: 0.5rem;
+    padding: 0 0.7rem;
+}
+
+#noteJoin .section label {
+	padding-right: 0;
+}
+
+#noteJoin .section input {
+	background-color: transparent;
+}
+
+#noteJoin .actions {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1rem 0rem;
+}
+
 .pin {
 	width: 50px;
 	height: 43px;

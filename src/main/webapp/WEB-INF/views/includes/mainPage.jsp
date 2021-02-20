@@ -20,7 +20,15 @@
 				<div class="bluePin pin"></div>
 				<h1 class="noteTitle">Join</h1>
 				<div class="noteDescription">
-					<p>Type a <em>Turnip Code</em> below to hop on the queue page! Once there, you will be able to join the queue!</p>
+					<p>Click here & type a <em>Turnip Code</em> below to hop on the queue page! Once there, you will be able to join the queue!</p>
+				</div>
+				<div class="turnipCodeForm">
+					<div class="turnipCode section">
+						<label for="turnipCodeInput">Turnip Code:</label><input type="text" id="turnipCodeInput" placeholder="ABCDEF">
+					</div>
+					<div class="actions">
+						<button class="btn btnLetsGo">Let's Go!</button>
+					</div>
 				</div>
 			</div>
 			<div class="note" id="noteIslands">

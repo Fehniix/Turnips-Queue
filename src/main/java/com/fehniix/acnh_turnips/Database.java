@@ -62,4 +62,12 @@ public final class Database {
 			Logger.log(AnsiColor.RED, "There was an error running the query:\n", AnsiColor.DEFAULT, ex.getMessage());
 		}
 	}
+
+	public final Connection getConnection() {
+		return this.connection;
+	}
+
+	public final Statement createStatement() throws SQLException {
+		return this.connection.createStatement();
+	}
 }

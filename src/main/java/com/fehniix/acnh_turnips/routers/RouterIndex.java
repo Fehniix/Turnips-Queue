@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class RouterIndex {
 	
-	@GetMapping("/")
+	@GetMapping(value={"/", "/host", "/hostStep2", "/main", "/island", "/islands", "/island/*"})
 	public static final String index() {
 		return "index";
 	}

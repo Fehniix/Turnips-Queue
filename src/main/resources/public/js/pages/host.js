@@ -1,3 +1,5 @@
+import Animator from "../Animator.js";
+
 class HostPage {
 	pageHandler;
 
@@ -7,6 +9,13 @@ class HostPage {
 		});
 
 		$('.hostPage .btnNext').on('click', _ => {
+			const dodoCode = $('#dodoCodeInput').val();
+
+			if (!dodoCode || !dodoCode.match(/[\d\w]{5}/)) {
+				Animator.showErrorModal('The supplied Dodo Code format is incorrect. An example of Dodo Code: 1FA3Q.');
+				return;
+			}
+
 			this.pageHandler.swapToPage('hostStep2', true);
 		});
 
@@ -25,19 +34,33 @@ class HostPage {
 			const privateListing 	= $('#privateListingCheckbox').is(':checked');
 			const dodoCode			= $('#dodoCodeInput').val();
 
-			const result = await $.post('/createQueue', {
-				islandName: islandName,
-				nativeFruit: nativeFruit,
-				_private: privateListing,
-				turnips: turnips,
-				hemisphere: hemisphere,
-				maxLength: maxLength,
-				maxVisitors: maxVisitors,
-				dodoCode: dodoCode,
-				description: description
-			});
+			try {
 
-			console.log(result);
+				const queueCreatedResponse = await $.post('/endpoint/createQueue', {
+					islandName: islandName,
+					nativeFruit: nativeFruit,
+					_private: privateListing,
+					turnips: turnips,
+					hemisphere: hemisphere,
+					maxLength: maxLength,
+					maxVisitors: maxVisitors,
+					dodoCode: dodoCode,
+					description: description
+				});
+
+				//	Designate the current user as the host/admin of the queue.
+				window.localStorage.setItem('admin', queueCreatedResponse.queueId);
+
+				//	Load the island/turnipCode page.
+				window.location.replace(`island/${queueCreatedResponse.turnipCode}`);
+
+			} catch (response) {
+				console.log(response);
+				if (response.status == 400) {
+					Animator.showErrorModal('All fields have to be filled.');
+					return;
+				}
+			}
 		});
 	}
 	

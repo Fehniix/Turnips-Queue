@@ -2,11 +2,19 @@ package com.fehniix.acnh_turnips;
 
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public final class Queue {
+	/**
+	 * The ID is used to uniquely identify the Queue admin, the user that created the queue and is hosting is island.
+	 */
+	@JsonIgnore
+	private String id;
+
 	/**
 	 * Unique queue identifier associated with the DB queue instance.
 	 */
-	private String id;
+	private String turnipCode;
 
 	/**
 	 * Whether the queue is locked or not.
@@ -36,8 +44,9 @@ public final class Queue {
 	/**
 	 * Initializes a queue using a UUID, maxLength and maxVisitors.
 	 */
-	public Queue(String id, Integer maxLength, Integer maxVisitors) {
-		this.id 				= id;
+	public Queue(String id, String turnipCode, Integer maxLength, Integer maxVisitors) {
+		this.id					= id;
+		this.turnipCode 		= turnipCode;
 		this.maxQueueLength 	= maxLength;
 		this.maxVisitorsLength 	= maxVisitors;
 
@@ -141,15 +150,39 @@ public final class Queue {
 
 		Queue queue = (Queue) q;
 
-		return queue.getId() == this.id;
+		return queue.getTurnipCode() == this.turnipCode;
 	}
 
 	//	Getters and setters.
-	public final String getId() {
-		return this.id;
+	public final String getTurnipCode() {
+		return this.turnipCode;
 	}
 
-	public final void setId(String id) {
-		this.id = id;
+	public final void setTurnipCode(String id) {
+		this.turnipCode = id;
+	}
+
+	public final Boolean getLocked() {
+		return this.locked;
+	}
+
+	public final Integer getMaxVisitorsLength() {
+		return this.maxVisitorsLength;
+	}
+
+	public final Integer getMaxQueueLength() {
+		return this.maxQueueLength;
+	}
+
+	public final ArrayList<User> getQueuedUsers() {
+		return this.queuedUsers;
+	}
+
+	public final ArrayList<User> getTreasury() {
+		return this.treasury;
+	}
+
+	public final String getId() {
+		return this.id;
 	}
 }

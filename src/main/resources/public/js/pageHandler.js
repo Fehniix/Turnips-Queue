@@ -1,4 +1,5 @@
 import Animator from "./animator.js";
+import PageRouter from "./pageRouter.js";
 
 class PageHandler {
 	constructor() {
@@ -33,7 +34,7 @@ class PageHandler {
 	/**
 	 * Swaps to the page identified by its unique name. The `flex` parameter specifies the target page is a FlexBox item.
 	 */
-	async swapToPage(pageName, flex = false) {
+	async swapToPage(pageName, flex = false, noHistoryUpdate = false) {
 		if (!Object.keys(this.pages).includes(pageName))
 			throw new Error('The supplied page to swap to does not exist.');
 
@@ -42,6 +43,8 @@ class PageHandler {
 		
 		//	Set the currently active page.
 		this.activePageName = pageName;
+
+		PageRouter.pageSwapped(pageName, noHistoryUpdate);
 
 		//	Trigger custom pageSwapped event.
 		$(window).trigger('pageSwapped');

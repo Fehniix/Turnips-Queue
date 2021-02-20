@@ -7,7 +7,22 @@ class MainPage {
 		});
 
 		$('#noteJoin').on('click', _ => {
-			this.pageHandler.swapToPage('island', true);
+			$('#noteJoin').addClass('active');
+		});
+
+		$('*').on('click', event => {
+			if ($(event.target).closest('#noteJoin').length > 0)
+				return;
+			$('#noteJoin').removeClass('active');
+		});
+
+		$('#noteJoin .btnLetsGo').on('click', _ => {
+			const turnipCode = $('#turnipCodeInput').val();
+
+			if (!turnipCode)
+				return;
+
+			window.location.replace(`island/${turnipCode}`);
 		});
 
 		$('#noteIslands').on('click', _ => {
