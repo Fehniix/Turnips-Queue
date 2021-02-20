@@ -51,6 +51,7 @@
 			<div class="visitors">
 				<ul>
 					<li>
+						<span class="kick">X</span>
 						<span class="position">1:</span>
 						<span class="username">Username</span>
 						<span class="timeSinceJoin">(35 minutes)</span>

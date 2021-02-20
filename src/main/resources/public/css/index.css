@@ -429,6 +429,13 @@ button {
 	margin-bottom: 0.5rem;
 }
 
+.islandPage .visitors li .kick {
+	text-decoration: underline;
+	font-weight: 700;
+	cursor: pointer;
+	display: none;
+}
+
 .islandPage .visitors li .position {
 	margin-right: 0.25rem;
 }

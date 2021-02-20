@@ -46,15 +46,15 @@
 
 			<div class="hemisphere section">
 				<label for="hemisphere">Your Island Emisphere:</label>
-				<select>
-					<option>Northern</option>
-					<option>Southern</option>
+				<select id="hemisphereSelect">
+					<option value="northern">Northern</option>
+					<option value="southern">Southern</option>
 				</select>
 			</div>
 
 			<div class="fruit section">
 				<label>Your Native Fruit:</label>
-				<select>
+				<select id="nativeFruitSelect">
 					<option value="apples">Apples</option>
 					<option value="pears">Pears</option>
 					<option value="cherries">Cherries</option>
