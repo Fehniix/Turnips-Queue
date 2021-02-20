@@ -13,7 +13,8 @@
 	--color-primary-100: 51, 172, 153;
 	--color-secondary-100: 254, 210, 62;
 	--color-secondary-200: 230, 156, 21;
-	--color-alert: 218, 47, 53;
+	--color-alert-100: 218, 47, 53;
+	--color-alert-200: 185, 30, 36;
 	--btn-hover: 41, 138, 121;
 	--separator: 0, 0, 0, 0.2;
 }
@@ -81,11 +82,15 @@ button {
 
 .btnRed {
 	color: white;
-	background-color: rgb(var(--color-alert));
+	background-color: rgb(var(--color-alert-100));
 }
 
 .btn:hover {
 	background-color: rgb(var(--btn-hover));
+}
+
+.btnRed:hover {
+	background-color: rgb(var(--color-alert-200));
 }
 
 .border-separator {
@@ -111,6 +116,15 @@ button {
 	background-color: white;
 	padding: 32px;
 	border-radius: 16px;
+}
+
+#modalJoin .section input {
+	flex-grow: 1;
+}
+
+#modalJoin .actions {
+	display: flex;
+    justify-content: space-between;
 }
 
 /** MAIN PAGE **/
@@ -429,6 +443,8 @@ button {
 
 .islandPage .description {
 	white-space: pre-wrap;
+	min-height: 120px;
+    padding-top: 1rem;
 }
 
 .islandPage .description p {

@@ -7,7 +7,7 @@
 
 			<div class="header">
 				<div class="title">
-					<span>Island name here</span>
+					<span class="islandName">Island name here</span>
 				</div>
 				<div class="islandInfo">
 					<div class="fruitImage icon" fruit="apple"></div>
@@ -15,8 +15,7 @@
 					<div class="turnipsImage icon"></div>
 					<span class="price">123 Bells</span>
 					<span class="separator">|</span>
-					<div class="hemisphere"></div>
-					<span class="separator">North</span>
+					<span class="hemisphere">North</span>
 				</div>
 			</div>
 
@@ -35,9 +34,9 @@
 
 			<div class="header visitorQueue">
 				<div class="title">
-					<span>Visitor Queue <small>3 / 3</small></span>
+					<span>Visitor Queue <small class="currentVisitors">3 / 3</small></span>
 				</div>
-				<div class="actions">
+				<div class="actions nonAdminActions">
 					<button id="btnJoinQueue" class="btn">Join Queue</button>
 					<button id="btnLeaveQueue" class="btn btnRed">Leave Queue</button>
 				</div>
@@ -46,7 +45,7 @@
 				</div>
 			</div>
 
-			<p class="visitorsDescription">This island allows for 4 visitor(s) at a time with a max queue size of 50. Currently there are 48 visitor(s) in line.</p>
+			<p class="visitorsDescription">This island allows for <span class="maxVisitors">0</span> visitor(s) at a time with a max queue size of <span class="maxLength">0</span>. Currently there are <span class="queuedUsers">0</span> visitor(s) in line.</p>
 
 			<div class="visitors">
 				<ul>

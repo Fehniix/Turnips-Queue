@@ -9,6 +9,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="/webjars/sockjs-client/sockjs.min.js"></script>
     	<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 		<title>ACNH: Turnips</title>
 	</head>
 	<body>
@@ -53,6 +54,26 @@
 		<div class="modal" id="modalError">
 			<h1>Error</h1>
 			<p id="errorText"></p>
+		</div>
+
+		<div class="modal" id="modalJoin">
+			<h1>Let us know your in-game name.</h1>
+			<div class="section">
+				<input type="text" id="inGameNameInput">
+			</div>
+			<div class="actions">
+				<button class="btn btnCancel">Cancel</button>
+				<button class="btn btnJoin">Join</button>
+			</div>
+		</div>
+
+		<div class="modal" id="modalLeave">
+			<h1>Are you sure?</h1>
+			<p>Once you leave, your position is irrequivocably lost! Click on the "Leave" button to leave the queue.</p>
+			<div class="actions">
+				<button class="btn btnCancel">Cancel</button>
+				<button class="btn btnLeave">Leave</button>
+			</div>
 		</div>
 
 		<div class="audio btn">

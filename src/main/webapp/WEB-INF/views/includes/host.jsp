@@ -55,11 +55,11 @@
 			<div class="fruit section">
 				<label>Your Native Fruit:</label>
 				<select id="nativeFruitSelect">
-					<option value="apples">Apples</option>
-					<option value="pears">Pears</option>
-					<option value="cherries">Cherries</option>
-					<option value="peaches">Peaches</option>
-					<option value="oranges">Oranges</option>
+					<option value="apple">Apples</option>
+					<option value="pear">Pears</option>
+					<option value="cherry">Cherries</option>
+					<option value="peach">Peaches</option>
+					<option value="orange">Oranges</option>
 				</select>
 			</div>
 

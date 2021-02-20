@@ -6,6 +6,7 @@ import com.fehniix.acnh_turnips.FileIO;
 import com.fehniix.acnh_turnips.Logger;
 import com.fehniix.acnh_turnips.Queue;
 import com.fehniix.acnh_turnips.Queues;
+import com.fehniix.acnh_turnips.User;
 import com.fehniix.acnh_turnips.model.QueueCreatedResponse;
 import com.fehniix.acnh_turnips.model.QueueMeta;
 import com.fehniix.acnh_turnips.model.DAOs.QueueDAO;
@@ -93,6 +94,38 @@ public class RouterREST {
 		Queue queue = Queues.getInstance().selectQueueByTurnipCode(turnipCode);
 
 		return queue.getId().equals(admin);
+	}
+
+	@PostMapping("/endpoint/userJoinedQueue")
+	public final Boolean userJoinedQueue(@RequestParam String turnipCode, @RequestParam String userId, @RequestParam String username) {
+		Queue queue = Queues.getInstance().selectQueueByTurnipCode(turnipCode);
+
+		return queue.position(new User(username, userId)) != -1;
+	}
+
+	@PostMapping("/endpoint/userPositionInQueue")
+	public final Integer userPositionInQueue(@RequestParam String turnipCode, @RequestParam String userId, @RequestParam String username) {
+		Queue queue = Queues.getInstance().selectQueueByTurnipCode(turnipCode);
+
+		return queue.position(new User(username, userId));
+	}
+
+	@PostMapping("/endpoint/userJoin")
+	public final String userJoin(@RequestParam String turnipCode, @RequestParam String username, @RequestParam(required=false) String userId) {
+		Queue queue = Queues.getInstance().selectQueueByTurnipCode(turnipCode);
+		User user;
+		//	User already joined not working. Need to investigate the problem.
+		if (userId != null)
+			user = new User(username, userId);
+		else
+			user = new User(username);
+
+		String result = queue.join(user);
+
+		if (result.equals("skip_to_treasury") || result.equals("joined"))
+			return user.getUID();
+		
+		return result;
 	}
 
 }

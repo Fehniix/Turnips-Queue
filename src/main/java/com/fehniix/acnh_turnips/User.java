@@ -1,14 +1,22 @@
 package com.fehniix.acnh_turnips;
 
+import java.time.Instant;
 import java.util.UUID;
 
 public class User {
 	private String username;
 	private String uid;
+	private Long timeSinceJoin;
 
 	public User(String username) {
+		this.username 		= username;
+		this.uid 			= UUID.randomUUID().toString();
+		this.timeSinceJoin 	= null;
+	}
+
+	public User(String username, String uid) {
 		this.username 	= username;
-		this.uid 		= UUID.randomUUID().toString();
+		this.uid 		= uid;
 	}
 
 	public String getUsername() {
@@ -17,6 +25,14 @@ public class User {
 
 	public String getUID() {
 		return this.uid;
+	}
+
+	public Long getTimeSinceJoin() {
+		return this.timeSinceJoin;
+	}
+
+	public void setTimeSinceJoin() {
+		this.timeSinceJoin = Instant.now().getEpochSecond();
 	}
 
 	@Override

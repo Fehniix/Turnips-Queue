@@ -66,13 +66,13 @@ public final class Queue {
 
 		if (this.isFull())
 			return "full";
-
-		if (this.treasury.size() < this.maxVisitorsLength) {
-			this.treasury.add(user);
-			return "skip_to_treasury";
-		}
 		
 		this.queuedUsers.add(user);
+
+		if (this.treasury.size() < this.maxVisitorsLength) {
+			this.cycleNext();
+			return "skip_to_treasury";
+		}
 
 		return "joined";
 	}
@@ -86,9 +86,11 @@ public final class Queue {
 
 		if (this.treasury.contains(user)) {
 			this.treasury.remove(user);
+			this.cycleNext();
 			return "left_treasury";
 		}
 
+		this.cycleNext();
 		this.queuedUsers.remove(user);
 		return "left";
 	}
@@ -96,7 +98,7 @@ public final class Queue {
 	/**
 	 * Returns the position in queue of the supplied user. If the user has yet to join, `-1` is returned.
 	 */
-	public final Integer position(User user) {
+	synchronized public final Integer position(User user) {
 		for (int i = 0; i < this.treasury.size(); ++i)
 			if (this.treasury.get(i).equals(user))
 				return i + 1;
@@ -113,6 +115,8 @@ public final class Queue {
 	 */
 	public final void kick(Integer position) {
 		this.treasury.remove(position - 1);
+
+		this.cycleNext();
 	}
 
 	/**
@@ -124,6 +128,20 @@ public final class Queue {
 
 		this.queuedUsers 	= null;
 		this.treasury 		= null;
+	}
+
+	/**
+	 * This method handles popping a user from the queuedUsers and pushing to the treasury.
+	 */
+	private final void cycleNext() {
+		//	Second condition happens when the user has updated the queue shrinking the maxVisitorsLength, more than the current number of visitors.
+		if (this.queuedUsers.size() == 0 || this.treasury.size() > this.maxVisitorsLength)
+			return;
+
+		User user = this.queuedUsers.remove(0);
+		user.setTimeSinceJoin();
+
+		this.treasury.add(user);
 	}
 
 	/**
