@@ -4,6 +4,9 @@
 			<h1>ACNH: Turnips</h1>
 		</div>
 		<div class="siteDescription">
+			<div class="backToHosted">
+				<button class="btn">Back to the Island</button>
+			</div>
 			<div class="descriptionContent">
 				Lorem ipsum
 			</div>

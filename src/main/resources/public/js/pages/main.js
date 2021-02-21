@@ -28,10 +28,31 @@ class MainPage {
 		$('#noteIslands').on('click', _ => {
 			this.pageHandler.swapToPage('islands', true);
 		});
+
+		$('.mainPage .backToHosted .btn').on('click', _ => {
+			const turnipCode = window.localStorage.getItem('back');
+
+			if (!turnipCode)
+				return;
+
+			window.location.replace(`island/${turnipCode}`);
+		});
+
+		this.pageSwapped();
 	}
 	
 	setPageHandler(pageHandler) {
 		this.pageHandler = pageHandler;
+	}
+
+	pageSwapped() {
+		//	Check if the user is currently hosting the island. If so, show the "back to the island" button.
+		const turnipCode = window.localStorage.getItem('back');
+
+		if (!turnipCode)
+			return;
+
+		$('.mainPage .backToHosted').show();
 	}
 }
 

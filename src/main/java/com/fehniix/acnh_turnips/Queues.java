@@ -44,9 +44,9 @@ public final class Queues {
 	/**
 	 * Deletes a queue given its unique identifier. Returns `true` on success, `false` otherwise.
 	 */
-	public final Boolean deleteQueue(String id) {
+	public final Boolean deleteQueue(String turnipCode) {
 		for (int i = 0; i < this.queues.size(); ++i) {
-			if (this.queues.get(i).getTurnipCode() == id) {
+			if (this.queues.get(i).getTurnipCode() == turnipCode) {
 				this.queues.remove(i);
 				return true;
 			}

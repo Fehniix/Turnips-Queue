@@ -27,6 +27,11 @@ class PageRouter {
 
 			//	And set the PageHandler reference.
 			this.pageRefs[pageName].setPageHandler(pageHandler);
+
+			//	Set the double linked ref.
+			if (typeof this.pageRefs[pageName].setPageRouter === 'function') {
+				this.pageRefs[pageName].setPageRouter(this);
+			}
 		});
 	}
 
@@ -35,6 +40,10 @@ class PageRouter {
 	 * @param {string} toPage Name of the swap target page.
 	 */
 	pageSwapped(toPage, noHistoryUpdate = false) {
+		if (toPage !== 'hostStep2')
+			if (typeof this.pageRefs[toPage].pageSwapped === 'function')
+				this.pageRefs[toPage].pageSwapped();
+
 		if (toPage === 'main')
 			toPage = '';
 
@@ -61,7 +70,9 @@ class PageRouter {
 			} catch (ex) {
 				console.log(ex);
 				await PageHandler.swapToPage('main');
-				Animator.showErrorModal('The specified Turnip Code is invalid.');
+				Animator.showErrorModal('The specified Turnip Code is invalid. The island might have been deleted. We\'re sorry for the inconvenience. :(');
+				window.localStorage.removeItem('back');
+				$('.mainPage .backToIsland').hide();
 			}
 
 		} else if (requestedPage.match(/hostStep2/)) {
@@ -70,6 +81,13 @@ class PageRouter {
 			PageHandler.swapToPage('main');
 
 		}
+	}
+
+	/**
+	 * Returns the reference to the specified page.
+	 */
+	getPageRef(pageName) {
+		return this.pageRefs[pageName];
 	}
 }
 

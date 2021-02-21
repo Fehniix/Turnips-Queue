@@ -46,6 +46,41 @@ public class QueueDAO {
 		return null;
 	}
 
+	public static QueueMeta getQueueByTurnipCodePrivileged(String turnipCode) {
+		try {
+
+			PreparedStatement statement = Database.getInstance().getConnection().prepareStatement(
+				"SELECT * FROM queues WHERE turnipCode = ?"
+			);
+			statement.setString(1, turnipCode);
+
+			ResultSet resultSet = statement.executeQuery();
+
+			//	The result is supposed to be only one.
+			if (!resultSet.next())
+				return null;
+
+			QueueMeta qm 	= new QueueMeta();
+			qm.islandName	= resultSet.getString("islandName");
+			qm.nativeFruit	= resultSet.getString("nativeFruit");
+			qm._private		= resultSet.getBoolean("private");
+			qm.turnips		= resultSet.getInt("turnips");
+			qm.hemisphere	= resultSet.getString("hemisphere");
+			qm.maxLength 	= resultSet.getInt("maxLength");
+			qm.maxVisitors 	= resultSet.getInt("maxVisitors");
+			qm.description	= resultSet.getString("description");
+			qm.turnipCode	= resultSet.getString("turnipCode");
+			qm.dodoCode		= resultSet.getString("dodoCode");
+
+			return qm;
+
+		} catch (SQLException ex) {
+			Logger.log(AnsiColor.RED, "There was a problem retrieving the queue with turnip code (" + turnipCode + "). " + ex.getMessage());
+		}
+
+		return null;
+	}
+
 	public static String getDodoCodeByTurnipCode(String turnipCode) {
 		try {
 

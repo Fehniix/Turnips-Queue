@@ -8,6 +8,7 @@
 			<div class="header">
 				<div class="title">
 					<span class="islandName">Island name here</span>
+					<span class="locked">&#x1F512;</span>
 				</div>
 				<div class="islandInfo">
 					<div class="fruitImage icon" fruit="apple"></div>
@@ -68,10 +69,23 @@
 				</ul>
 			</div>
 
+			<li id="visitorTemplate">
+				<span class="kick">X</span>
+				<span class="position">1:</span>
+				<span class="username">Username</span>
+				<span class="timeSinceJoin">(35 minutes)</span>
+			</li>
+
+			<div class="border-separator separatorDodoCode"></div>
+			<div class="dodoCodeSection">
+				<h3>Here is your Dodo Code!</h3>
+				<h1 id="dodoCode">12345</h1>
+			</div>
+
 			<div class="border-separator separator2"></div>
 
 			<div class="currentPosition">
-				<span>You are <strong>#45</strong> of 50 in the queue.</span>
+				<span>You are <strong class="position">#45</strong> of <span class="maxSize">50</span> in the queue.</span>
 			</div>
 
 			<div class="adminControls">

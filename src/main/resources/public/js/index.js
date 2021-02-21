@@ -34,7 +34,7 @@ import SocketHandler from './socketHandler.js';
 		//	Global binds.
 
 		//	Available custom events:
-		//	- islandsLoaded, pageSwapped.
+		//	- islandsLoaded, pageSwapped, update.
 		$(window).on('islandsLoaded', _ => {
 			$('.island').each((index, element) => {
 				//	Rotate island notes randomly.

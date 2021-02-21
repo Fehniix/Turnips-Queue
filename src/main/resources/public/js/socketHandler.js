@@ -23,7 +23,11 @@ class SocketHandler {
 	}
 
 	messageReceived(data) {
-		console.log(data);
+		if (data.body === 'update')
+			$(window).trigger('update', data);
+		
+		if (data.body === 'queue_destroyed')
+			$(window).trigger('queueDestroyed', data);
 	}
 }
 

@@ -56,6 +56,11 @@
 			<p id="errorText"></p>
 		</div>
 
+		<div class="modal" id="modalNotice">
+			<h1>Notice</h1>
+			<p></p>
+		</div>
+
 		<div class="modal" id="modalJoin">
 			<h1>Let us know your in-game name.</h1>
 			<div class="section">

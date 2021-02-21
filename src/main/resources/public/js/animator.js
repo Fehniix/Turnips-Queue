@@ -42,43 +42,56 @@ class Animator {
 	 * @param {*} modalId The modal root's ID.
 	 */
 	showModal(modalId) {
-		const blackOverlay = $('.blackOverlay');
-		const modal = $(`#${modalId}`);
+		return new Promise((resolve, _) => {
+			const blackOverlay = $('.blackOverlay');
+			const modal = $(`#${modalId}`);
 
-		$(modal).css('top', '-40%');
-		$(modal).css('opacity', '0');
-		$(modal).show().animate({
-			top: '50%',
-			opacity: '1'
-		}, 250);
+			$(modal).css('top', '-40%');
+			$(modal).css('opacity', '0');
+			$(modal).show().animate({
+				top: '50%',
+				opacity: '1'
+			}, 250);
 
-		$(blackOverlay).css('opacity', '0');
-		$(blackOverlay).show().animate({
-			opacity: 1
-		}, 250);
+			$(blackOverlay).css('opacity', '0');
+			$(blackOverlay).show().animate({
+				opacity: 1
+			}, 250, () => {
+				resolve();
+			});
+		});
 	}
 
 	/**
 	 * Hides all currently displayed modals. Supposedly only one is currently shown.
 	 */
-	hideModal() {
-		$('.modal').animate({
-			top: '-40%',
-			opacity: '0'
-		}, 250, () => {
-			$('.modal').hide();
-		});
-
-		$('.blackOverlay').animate({
-			opacity: '0'
-		}, 250, () => {
-			$('.blackOverlay').hide();
+	async hideModal() {
+		return new Promise((resolve, _) => {
+			$('.modal').animate({
+				top: '-40%',
+				opacity: '0'
+			}, 250, () => {
+				$('.modal').hide();
+			});
+	
+			$('.blackOverlay').animate({
+				opacity: '0'
+			}, 250, () => {
+				$('.blackOverlay').hide();
+				resolve();
+			});
 		});
 	}
 
-	showErrorModal(message) {
+	async showErrorModal(message) {
 		$('#errorText').text(message);
-		this.showModal('modalError');
+		await this.showModal('modalError');
+	}
+
+	async showNoticeModal(title, message) {
+		$('#modalNotice h1').text(title);
+		$('#modalNotice p').text(message);
+		await this.showModal('modalNotice');
 	}
 }
 

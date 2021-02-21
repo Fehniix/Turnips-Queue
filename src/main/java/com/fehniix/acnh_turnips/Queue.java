@@ -57,7 +57,7 @@ public final class Queue {
 	/**
 	 * Allows the supplied user to join the queue. On error, string error codes are returned.
 	 */
-	synchronized public final String join(User user) {
+	public final String join(User user) {
 		if (this.locked)
 			return "locked";
 
@@ -90,15 +90,15 @@ public final class Queue {
 			return "left_treasury";
 		}
 
-		this.cycleNext();
 		this.queuedUsers.remove(user);
+		this.cycleNext();
 		return "left";
 	}
 
 	/**
 	 * Returns the position in queue of the supplied user. If the user has yet to join, `-1` is returned.
 	 */
-	synchronized public final Integer position(User user) {
+	public final Integer position(User user) {
 		for (int i = 0; i < this.treasury.size(); ++i)
 			if (this.treasury.get(i).equals(user))
 				return i + 1;
@@ -125,15 +125,36 @@ public final class Queue {
 	public final void destroyQueue() {
 		this.queuedUsers.clear();
 		this.treasury.clear();
+		this.turnipCode = null;
 
 		this.queuedUsers 	= null;
 		this.treasury 		= null;
 	}
 
 	/**
+	 * Returns `true` if the user is contained in the treasury, false otherwise.
+	 */
+	public final Boolean userIsVisiting(User user) {
+		if (this.treasury.contains(user))
+			return true;
+		return false;
+	}
+
+	/**
+	 * Updates the maximum queue length and treasury length.
+	 */
+	public final void update(Integer maxQueueLength, Integer maxVisitorsLength) {
+		if (maxVisitorsLength > this.maxVisitorsLength)
+			this.cycleNext();
+
+		this.maxVisitorsLength = maxVisitorsLength;
+		this.maxQueueLength = maxQueueLength;
+	}
+
+	/**
 	 * This method handles popping a user from the queuedUsers and pushing to the treasury.
 	 */
-	private final void cycleNext() {
+	synchronized private final void cycleNext() {
 		//	Second condition happens when the user has updated the queue shrinking the maxVisitorsLength, more than the current number of visitors.
 		if (this.queuedUsers.size() == 0 || this.treasury.size() > this.maxVisitorsLength)
 			return;
@@ -148,7 +169,7 @@ public final class Queue {
 	 * Returns true if the sum of the number of users currently waiting to get the code and users that have is greater than the maximum queue length; false otherwise.
 	 */
 	private final Boolean isFull() {
-		return this.queuedUsers.size() + this.treasury.size() > this.maxQueueLength;
+		return this.queuedUsers.size() + this.treasury.size() >= this.maxQueueLength;
 	}
 
 	/**
@@ -182,6 +203,10 @@ public final class Queue {
 
 	public final Boolean getLocked() {
 		return this.locked;
+	}
+
+	public final void setLocked(Boolean locked) {
+		this.locked = locked;
 	}
 
 	public final Integer getMaxVisitorsLength() {
