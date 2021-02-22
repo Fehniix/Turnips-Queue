@@ -1,6 +1,6 @@
 # Run Instructions
 
-The Docker mount volume for the official Postgres Docker image is `./database-mount`. It has to be located at **root level**, parallel to `src`, `target` etc.
+The Docker mount volume for the official Postgres Docker image is `./database-mount`. It has to be located at **root level**, parallel to `src`, `target` etc. Of course, the official Postgres Docker image has be already pulled and ready to use.
 
 ## Docker run command
 
