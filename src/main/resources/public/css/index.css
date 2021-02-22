@@ -267,6 +267,7 @@ button {
 
 #noteJoin.active {
 	height: fit-content;
+	height: -moz-fit-content;
 	z-index: 5;
 }
 
@@ -640,6 +641,7 @@ button {
 .islandsPage .filter:nth-child(2) {
 	justify-self: center;
 	margin-left: 0;
+	display: none;
 }
 
 .islandsPage .filter:last-child {
@@ -688,13 +690,16 @@ button {
 	margin-top: 2rem;
 }
 
+.islandsPage .islandTemplate {
+	display: none;
+}
+
 .islandsPage .island {
 	width: 16rem;
+	min-height: 17.5rem;
 	position: relative;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	align-items: center;
+	display: grid;
+    grid-auto-rows: min-content min-content 1fr min-content;
 	padding: 0.75rem;
 	/** This is amazing. width: 100 is calculated only AFTER padding is first applied. God I wish I knew this earlier. Wow. 🤯 **/
 	box-sizing: border-box;
@@ -723,6 +728,7 @@ button {
 }
 
 .islandsPage .island .islandInfo {
+	justify-content: center;
 	margin: 1rem 0;
 }
 

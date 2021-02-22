@@ -8,7 +8,7 @@
 				<button class="btn">Back to the Island</button>
 			</div>
 			<div class="descriptionContent">
-				Lorem ipsum
+				<p>Welcome to <strong>ACNH: Turnips</strong>! &#x1F604;<br><br>ACNH: Turnips aims to offer an easy, reliable, straightforward and completely free service to host your Animal Crossing: New Horizons island. You will be able to share your Dodo Code with players from all around the world! &#x1F44C; No more giving out your Dodo Code to 100 players and have them all joining at once. Your Switch might explode. Not cool. <small>(Your Switch is not exploding anytime soon.)</small></p>
 			</div>
 		</div>
 		<div class="actionNotes">

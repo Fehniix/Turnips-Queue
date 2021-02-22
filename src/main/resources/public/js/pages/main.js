@@ -26,7 +26,7 @@ class MainPage {
 		});
 
 		$('#noteIslands').on('click', _ => {
-			this.pageHandler.swapToPage('islands', true);
+			window.location.replace(`islands`);
 		});
 
 		$('.mainPage .backToHosted .btn').on('click', _ => {

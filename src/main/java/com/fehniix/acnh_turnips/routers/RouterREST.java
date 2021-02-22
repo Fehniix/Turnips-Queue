@@ -11,6 +11,7 @@ import com.fehniix.acnh_turnips.Queues;
 import com.fehniix.acnh_turnips.User;
 import com.fehniix.acnh_turnips.model.QueueCreatedResponse;
 import com.fehniix.acnh_turnips.model.QueueMeta;
+import com.fehniix.acnh_turnips.model.QueueTuple;
 import com.fehniix.acnh_turnips.model.DAOs.QueueDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -287,5 +288,31 @@ public class RouterREST {
 		QueueDAO.deleteQueueByTurnipCode(turnipCode);
 
 		this.simpMessagingTemplate.convertAndSend("/topic/queue", "queue_destroyed");
+	}
+
+	@PostMapping("/endpoint/kickUser")
+	public final void kickUser(@RequestParam String turnipCode, @RequestParam String adminId, @RequestParam Integer position) {
+		Queue queue = Queues.getInstance().selectQueueByTurnipCode(turnipCode);
+		
+		if (!queue.getId().equals(adminId))
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "You are not the queue host.");
+
+		if (queue.getTreasury().size() == 0) {
+			System.out.println("size: 0");
+			throw new ResponseStatusException(HttpStatus.GONE, "No users in treasury to kick.");
+		}
+
+		User user = queue.getTreasury().get(position - 1);
+		queue.kick(position);
+
+		//this.simpMessagingTemplate.convertAndSend("/topic/queue", "update");
+		this.simpMessagingTemplate.convertAndSend("/topic/user/" + user.getUID(), "kick");
+	}
+
+	@GetMapping("/endpoint/filterQueues")
+	public final ArrayList<QueueTuple> filterQueues(@RequestParam String hemisphere, @RequestParam String turnipsOrder) {
+		ArrayList<QueueTuple> tuples = QueueDAO.getQueuesWithFilters(turnipsOrder, hemisphere);
+
+		return tuples;
 	}
 }

@@ -16,9 +16,16 @@ class SocketHandler {
 
 		await this.stompClient.connect({}, frame => {
 			console.log('Connected to the WS server endpoint.');
+
 			this.stompClient.subscribe('/topic/queue', data => {
 				this.messageReceived(data);
 			});
+
+			window.subscribeToPrivateMessages = (userId, callback) => {
+				this.stompClient.subscribe(`/topic/user/${userId}`, data => {
+					callback(data);
+				});
+			};
 		});
 	}
 

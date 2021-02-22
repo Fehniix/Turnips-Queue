@@ -40,14 +40,34 @@
 		<div class="modal" id="modalRules">
 			<h1>Rules &#x2696;</h1>
 			<ul>
-				<li>Be a good boi.</li>
+				<li>Promoting your social media is perfectly fine.</li>
+				<li>Just don't ask players to like, follow or subscribe in exchange for skipping the queue. Not cool.</li>
+				<li>Be kind and respectful.</li>
+				<li>Anything illegal and you're out.</li>
 			</ul>
 		</div>
 
 		<div class="modal" id="modalFAQ">
 			<h1>FAQ &#x2696;</h1>
 			<ul>
-				<li>Be a good boi.</li>
+				<li>
+					<p>
+						<strong>What the duck is this?</strong>
+						ACNH: Turnips! Share you Dodo Code with hundreds of players without having them access all at once. That can be madness and not a very pleasant experience for players.
+					</p>
+				</li>
+				<li>
+					<p>
+						<strong>Can I... ?</strong>
+						Probably yes. Unless it's illegal, like for example trading a spot in queue for a soul. Or a leg. You choose.
+					</p>
+				</li>
+				<li>
+					<p>
+						<strong>THE ISLAND WAS DELETED, I WAITED 10 HOURS?!</strong>
+						Up to the host. They chose to open up their island so that hundreds of players could join. <strong>For free</strong>.
+					</p>
+				</li>
 			</ul>
 		</div>
 

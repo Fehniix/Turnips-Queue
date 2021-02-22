@@ -269,6 +269,7 @@ class IslandPage {
 				visitorElement.find('.position').text((index + 1) + ':');
 				visitorElement.find('.username').text(visitor.username);
 				visitorElement.find('.timeSinceJoin').attr('data', visitor.timeSinceJoin);
+				visitorElement.find('.kick').attr('position', (index + 1));
 
 				$('.islandPage .visitors ul').append(visitorElement);
 			});
@@ -287,6 +288,7 @@ class IslandPage {
 			$('.islandPage .nonAdminActions').hide();
 			$('.islandPage .adminControls').show();
 			$('.islandPage .adminActions').show();
+			$('.islandPage .visitors .kick').css('display', 'inline');
 		} else if (await this.userJoinedQueue()) {
 			$('.islandPage #btnJoinQueue').hide();
 			$('.islandPage #btnLeaveQueue').show();
@@ -298,6 +300,14 @@ class IslandPage {
 				$('#dodoCode').text(await this.getDodoCode());
 				$('.islandPage .separatorDodoCode').show();
 				$('.islandPage .dodoCodeSection').show();
+
+				const user = this.getUserStatusForQueue(turnipCode);
+
+				window.subscribeToPrivateMessages(user.userId, async data => {
+					window.localStorage.removeItem(turnipCode);
+					this.preload();
+					await Animator.showNoticeModal('Whoops...', 'The host has removed you from the queue.');
+				});
 			} else {
 
 			}
@@ -312,7 +322,28 @@ class IslandPage {
 			$('.islandPage #btnLeaveQueue').hide();
 		}
 		
-		console.log(await this.userJoinedQueue());
+		$('.islandPage .visitors .kick').on('click', event => {
+			const position = $(event.target).attr('position');
+			const user = this.getUserStatusForQueue(turnipCode);
+
+			if (!user)
+				return;
+
+			if (!user.admin)
+				return;
+
+			try {
+				const result = $.post('/endpoint/kickUser', {
+					turnipCode: turnipCode,
+					adminId: user.admin,
+					position: position
+				});
+
+				this.preload();
+			} catch (ex) {
+				console.log(ex);
+			}
+		});
 	}
 
 	/**
@@ -423,7 +454,6 @@ class IslandPage {
 				userId: userId,
 				username: username
 			});
-			console.log(dodoCode);
 			return dodoCode;
 		} catch (ex) {
 			console.log(ex);

@@ -80,6 +80,12 @@ class PageRouter {
 			//	Host Step 2. Invalid route when reached from typing the URL on the browser directly.
 			PageHandler.swapToPage('main');
 
+		} else if (requestedPage.match(/islands/)) {
+
+			await this.pageRefs.islands.preload();
+
+			PageHandler.swapToPage('islands', true, true);
+
 		}
 	}
 

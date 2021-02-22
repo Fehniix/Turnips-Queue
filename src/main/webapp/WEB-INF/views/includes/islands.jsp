@@ -38,15 +38,38 @@
 			</div>
 		</div>
 
-		<div class="islands">
+		<div class="islandTemplate">
 			<div class="island">
 				<div class="pin purplePin"></div>
 				<div class="islandHeader">
 					<div class="islandName">
 						<span>Weyard</span>
 					</div>
-					<div class="entryFee">
-						<span>&#x1F4B0;</span>
+				</div>
+				<div class="islandInfo">
+					<div class="fruitImage icon" fruit="apple"></div>
+					<span class="separator">|</span>
+					<div class="turnipsImage icon"></div>
+					<span class="price">123 Bells</span>
+					<span class="separator">|</span>
+					<div class="hemisphere"></div>
+					<span class="separator">North</span>
+				</div>
+				<div class="description">
+					<p>Description</p>
+				</div>
+				<div class="queueStatus">
+					<span>Waiting: 3 / 9</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="islands">
+			<div class="island">
+				<div class="pin purplePin"></div>
+				<div class="islandHeader">
+					<div class="islandName">
+						<span>Weyard</span>
 					</div>
 				</div>
 				<div class="islandInfo">
