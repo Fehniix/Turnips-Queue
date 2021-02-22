@@ -4,7 +4,7 @@ Dockerfile
 NOTES.md
 
 # Ignore temporary DB data
-database-mount
+#database-mount
 
 HELP.md
 target/
