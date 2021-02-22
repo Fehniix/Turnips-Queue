@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.fehniix.acnh_turnips.Database;
-import com.fehniix.acnh_turnips.Logger;
-import com.fehniix.acnh_turnips.Queue;
-import com.fehniix.acnh_turnips.Queues;
+import com.fehniix.acnh_turnips.entities.Database;
+import com.fehniix.acnh_turnips.entities.Logger;
+import com.fehniix.acnh_turnips.model.Queue;
+import com.fehniix.acnh_turnips.model.Queues;
 import com.fehniix.acnh_turnips.model.QueueMeta;
 import com.fehniix.acnh_turnips.model.QueueTuple;
 

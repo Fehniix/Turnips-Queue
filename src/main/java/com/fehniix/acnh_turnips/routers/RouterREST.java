@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.fehniix.acnh_turnips.FileIO;
-import com.fehniix.acnh_turnips.Logger;
-import com.fehniix.acnh_turnips.Queue;
-import com.fehniix.acnh_turnips.Queues;
-import com.fehniix.acnh_turnips.User;
+import com.fehniix.acnh_turnips.entities.FileIO;
+import com.fehniix.acnh_turnips.entities.Logger;
+import com.fehniix.acnh_turnips.model.Queue;
+import com.fehniix.acnh_turnips.model.Queues;
+import com.fehniix.acnh_turnips.model.User;
 import com.fehniix.acnh_turnips.model.QueueCreatedResponse;
 import com.fehniix.acnh_turnips.model.QueueMeta;
 import com.fehniix.acnh_turnips.model.QueueTuple;

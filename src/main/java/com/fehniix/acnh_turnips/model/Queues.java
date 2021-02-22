@@ -1,10 +1,8 @@
-package com.fehniix.acnh_turnips;
+package com.fehniix.acnh_turnips.model;
 
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
-
-import com.fehniix.acnh_turnips.model.QueueCreatedResponse;
 
 public final class Queues {
 	/**

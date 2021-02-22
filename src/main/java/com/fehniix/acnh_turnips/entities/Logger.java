@@ -1,4 +1,4 @@
-package com.fehniix.acnh_turnips;
+package com.fehniix.acnh_turnips.entities;
 
 import org.springframework.boot.ansi.*;
 

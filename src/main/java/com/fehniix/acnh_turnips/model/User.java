@@ -1,4 +1,4 @@
-package com.fehniix.acnh_turnips;
+package com.fehniix.acnh_turnips.model;
 
 import java.time.Instant;
 import java.util.UUID;

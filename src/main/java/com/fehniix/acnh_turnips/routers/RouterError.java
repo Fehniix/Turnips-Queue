@@ -4,7 +4,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fehniix.acnh_turnips.Logger;
+import com.fehniix.acnh_turnips.entities.Logger;
 
 import org.springframework.boot.ansi.AnsiColor;
 import org.springframework.boot.web.servlet.error.ErrorController;

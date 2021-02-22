@@ -1,4 +1,4 @@
-# Primarily used for testing and understanding core Docker concepts.
+# Primarily used for testing, studying and understanding core Docker concepts.
 docker-compose.yml
 Dockerfile
 NOTES.md

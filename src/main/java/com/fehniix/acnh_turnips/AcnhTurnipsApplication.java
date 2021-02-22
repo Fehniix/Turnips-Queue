@@ -1,5 +1,6 @@
 package com.fehniix.acnh_turnips;
 
+import com.fehniix.acnh_turnips.entities.Logger;
 import com.fehniix.acnh_turnips.model.DAOs.QueueDAO;
 
 import org.springframework.boot.SpringApplication;
